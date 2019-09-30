@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>prueba click+moviment</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        
+        <style>
+/*
+H
+E L L
+O
+*/
+
+/* BASE aka CSS RESET */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{
+    display: block;
+}
+
+body{
+    line-height: 1;
+}
+
+ol, ul{
+    list-style: none;
+}
+
+blockquote, q{
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after{
+    content: '';
+    content: none;
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* INICIO */
+
+@font-face {
+    font-family: 'DdD19';
+    src: url('DdD19.ttf')
+    format('truetype');
+}
+
+@font-face {
+    font-family: 'Monument';
+    src: url('Monument.ttf')
+    format('truetype');
+}
+
+
+html, body{
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -*-user-select: none;
+    overflow: hidden;
+}
+
+*{
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -*-user-select: none;
+    white-space: nowrap;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #F2F2F2;
+}
+
+#world{
+    overflow: hidden;
+    position: absolute;
+    width: 63.5vh;
+    height: 90vh;
+    margin: calc(50vh - 45vh) calc(50vw - 33vh);
+    top: 0px;
+    left: 0px;
+    background: #2CEA1C;
+    -webkit-box-shadow: 1px 4px 6px 0px rgba(0,0,0,0.45);
+    -moz-box-shadow:    1px 1px 6px 0px rgba(0,0,0,0.45);
+    box-shadow:         1px 1px 6px 0px rgba(0,0,0,0.45);
+    z-index: -20;
+}
+
+#gradient-top{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    z-index: 20;
+    background-image: url("gradient.png");
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    background-position: left top;
+    pointer-events: none;
+}
+
+#gradient-bottom{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0px;
+    z-index: 20;
+    background-image: url("gradient.png");
+    transform-origin: center;
+    transform: rotate(180deg);
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    background-position: left top;
+    pointer-events: none;
+}
+
+.big-type{
+    margin: -2vh 0 0 -1vh;
+    width: calc(100% + 1.3vh);
+    height: auto;
+    font-family: 'DdD19', sans-serif;
+    font-size: 28.3vh;
+    line-height: 18vh;
+    color: #000;
+    display: inline-block;
+    z-index: 15;
+}
+
+#trigger-1, #trigger-2, #trigger-3, #trigger-4, .bottom-info{
+    cursor: pointer !important;
+    -webkit-cursor: pointer !important;
+    -moz-cursor: pointer !important;
+}
+
+#char-1{
+    font-variation-settings: "wdth" 322;
+    transition: font-variation-settings 0.5s;
+}
+
+#char-2{
+    font-variation-settings: "wdth" 322;
+    transition: all 0.5s;
+    float: right;
+    margin-right: -0.8vh;
+}
+
+#char-3{
+    font-variation-settings: "wdth" 100;
+    margin-left: -3.6vh;
+    transition: margin-left 0.5s;
+}
+
+#char-4{
+    font-variation-settings: "wdth" 120;
+    transition: font-variation-settings 0.5s;
+    float: right;
+    margin-right: -0.8vh;
+}
+
+#char-5{
+    font-variation-settings: "wdth" 380;
+    transition: font-variation-settings 0.5s;
+    float: right;
+}
+
+#char-6{
+    font-variation-settings: "wdth" 430;
+    transition: font-variation-settings 0.5s;
+}
+
+#char-7{
+    font-variation-settings: "wdth" 250;
+    transition: font-variation-settings 0.5s;
+}
+
+#char-8{
+    font-variation-settings: "wdth" 100;
+    float: right;
+    margin-right: -4.5vh;
+    transition: margin-right 0.5s;
+}
+
+#char-9{
+    font-variation-settings: "wdth" 100;
+    transition: font-variation-settings 0.5s;
+    float: right;
+}
+
+#char-10{
+    font-variation-settings: "wdth" 535;
+    transition: font-variation-settings 0.5s;
+    float: right;
+}
+
+/* TRIGGER PLACING */
+
+#trigger-1, #trigger-2, #trigger-3, #trigger-4{
+    height: 20vh;
+    margin-top: 1.4vh;
+}
+
+/* HOVER TESTS */
+
+#trigger-1:hover #char-1, #trigger-1:hover #char-2{
+    font-variation-settings: "wdth" 100;
+
+}
+
+#trigger-1:hover #char-2 {
+    font-variation-settings: "wdth" 100;
+    color:  red;
+}
+
+
+.eco-trigger-1{
+    font-variation-settings: "wdth" 100 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-2{
+    font-variation-settings: "wdth" 310 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-3{
+    font-variation-settings: "wdth" 625 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-4{
+    font-variation-settings: "wdth" 100 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-5{
+    font-variation-settings: "wdth" 215 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-6{
+    font-variation-settings: "wdth" 370 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-7{
+    font-variation-settings: "wdth" 100 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-8{
+    font-variation-settings: "wdth" 480 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-9{
+    font-variation-settings: "wdth" 100 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-10{
+    font-variation-settings: "wdth" 508 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-11{
+    font-variation-settings: "wdth" 115 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-12{
+    font-variation-settings: "wdth" 450 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-13{
+    font-variation-settings: "wdth" 600 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-14{
+    font-variation-settings: "wdth" 100 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-15{
+    margin-left: -9.5vh !important;
+    transition: margin-left 0.5s;
+}
+
+.eco-trigger-16{
+    font-variation-settings: "wdth" 540 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-17{
+    font-variation-settings: "wdth" 100 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-18{
+    font-variation-settings: "wdth" 650 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-19{
+    margin-right: -10vh !important;
+    transition: margin-right 0.5s;
+}
+
+.eco-trigger-20{
+    font-variation-settings: "wdth" 200 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-21{
+    font-variation-settings: "wdth" 400 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-22{
+    margin-left: -9.5vh !important;
+    transition: margin-left 0.5s;
+}
+
+.eco-trigger-23{
+    font-variation-settings: "wdth" 510 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-24{
+    font-variation-settings: "wdth" 120 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-25{
+    font-variation-settings: "wdth" 200 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.eco-trigger-26{
+    font-variation-settings: "wdth" 420 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+
+
+
+
+
+
+
+.all-trigger{
+    font-variation-settings: "wdth" 100 !important;
+    transition: font-variation-settings 0.5s;
+}
+
+.all-trigger-opc{
+    opacity: 1 !important;
+    transition: opacity 0.4s;
+}
+
+/* HIDDEN INFO*/
+
+.hidden-info{
+    font-family: 'Avenir', sans-serif;
+    font-size: 2vh;
+    line-height: 2.5vh;
+    position: absolute;
+    color: #000;
+    z-index: -10;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+#info-expo{
+    top: 4vh ;
+    left: 27vh;
+}
+
+#trigger-1:hover #info-expo{
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+#info-conf{
+    top: 27.5vh ;
+    left: 16vh;
+}
+
+#trigger-2:hover #info-conf{
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+#info-call{
+    top: 46.5vh ;
+    left: 38.5vh;
+}
+
+#trigger-3:hover #info-call{
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+#info-logo{
+    left: 3vh;
+    bottom: 8vh;
+}
+
+#logo-svg{
+    width: 14.5vh;
+}
+
+
+
+
+
+
+
+
+        </style>
+        
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+    
+    <body>
+        
+        <section id="world">
+            
+            <!-- TYPE COMP -->
+            
+            <h1 class="big-type">
+                <div id="trigger-1">
+                    <nobr><span id="char-1" class="trigger char">W</span><span id="char-2"class="trigger char">E</span></nobr>
+                    
+                    <div class="hidden-info" id="info-expo">
+                        <p>Exposição</p>
+                        <p>oMuseu FBAUP</p>
+                        <p>Inauguração 8 Abril 17:00</p>
+                        <p>8 – 12 Abril</p>
+                    </div>
+                    
+                </div>
+
+                <div id="trigger-2">
+                    <nobr><span id="char-3" class="trigger char">A</span><span id="char-4" class="trigger char">E</span><span id="char-5" class="trigger char">R</span></nobr>
+                    
+                    <div class="hidden-info" id="info-conf">
+                        <p>Conferência</p>
+                        <p>Søren Pold (DK)</p>
+                        <p>8 Abril 16:00</p>
+                    </div>
+                    
+                </div>
+                
+            </h1>
+        </section>
+        
+        <script>
+            //POSTER COLOR
+
+                    $("#nav-color, #nav-color-trigger").click(function(){
+                        var colors = ["#FF6700", "#2CEA1C", "#0062FF", "#E6FF00", "#FF202D"];
+                        var rand = Math.floor(Math.random() * colors.length);
+                        $('#world').css("background-color", colors[rand]);
+                    });
+
+                    $(document).ready(function() {
+                        var colors = ["#FF6700", "#2CEA1C", "#0062FF", "#E6FF00"];
+                        var rand = Math.floor(Math.random() * colors.length);
+                        $('#world').css("background-color", colors[rand]);
+                    });
+
+
+
+
+
+                    //TRIGGER #1
+
+                    $("#trigger-1").mouseover(function(){
+                        $("#char-5").addClass("eco-trigger-1");
+                    });
+
+                    $("#trigger-1").mouseout(function(){
+                        $("#char-5").removeClass("eco-trigger-1");
+                    });
+
+                    $("#trigger-1").mouseover(function(){
+                        $("#char-4").addClass("eco-trigger-2");
+                    });
+
+                    $("#trigger-1").mouseout(function(){
+                        $("#char-4").removeClass("eco-trigger-2");
+                    });
+
+                    $("#trigger-1").mouseover(function(){
+                        $("#char-6").addClass("eco-trigger-3");
+                    });
+
+                    $("#trigger-1").mouseout(function(){
+                        $("#char-6").removeClass("eco-trigger-3");
+                    });
+
+                    $("#trigger-1").mouseover(function(){
+                        $("#char-7").addClass("eco-trigger-4");
+                    });
+
+                    $("#trigger-1").mouseout(function(){
+                        $("#char-7").removeClass("eco-trigger-4");
+                    });
+
+                    $("#trigger-1").mouseover(function(){
+                        $("#char-10").addClass("eco-trigger-5");
+                    });
+
+                    $("#trigger-1").mouseout(function(){
+                        $("#char-10").removeClass("eco-trigger-5");
+                    });
+
+                    $("#trigger-1").mouseover(function(){
+                        $("#char-9").addClass("eco-trigger-6");
+                    });
+
+                    $("#trigger-1").mouseout(function(){
+                        $("#char-9").removeClass("eco-trigger-6");
+                    });
+
+
+
+
+
+                    //TRIGGER #2
+
+                    $("#trigger-2").mouseover(function(){
+                        $("#char-1").addClass("eco-trigger-7");
+                    });
+
+                    $("#trigger-2").mouseout(function(){
+                        $("#char-1").removeClass("eco-trigger-7");
+                    });
+
+                    $("#trigger-2").mouseover(function(){
+                        $("#char-2").addClass("eco-trigger-8");
+                    });
+
+                    $("#trigger-2").mouseout(function(){
+                        $("#char-2").removeClass("eco-trigger-8");
+                    });
+
+                    $("#trigger-2").mouseover(function(){
+                        $("#char-6").addClass("eco-trigger-9");
+                    });
+
+                    $("#trigger-2").mouseout(function(){
+                        $("#char-6").removeClass("eco-trigger-9");
+                    });
+
+                    $("#trigger-2").mouseover(function(){
+                        $("#char-7").addClass("eco-trigger-10");
+                    });
+
+                    $("#trigger-2").mouseout(function(){
+                        $("#char-7").removeClass("eco-trigger-10");
+                    });
+
+                    $("#trigger-2").mouseover(function(){
+                        $("#char-10").addClass("eco-trigger-11");
+                    });
+
+                    $("#trigger-2").mouseout(function(){
+                        $("#char-10").removeClass("eco-trigger-11");
+                    });
+
+                    $("#trigger-2").mouseover(function(){
+                        $("#char-9").addClass("eco-trigger-12");
+                    });
+
+                    $("#trigger-2").mouseout(function(){
+                        $("#char-9").removeClass("eco-trigger-12");
+                    });
+
+
+
+
+
+                    //TRIGGER #3
+
+                    $("#trigger-3").mouseover(function(){
+                        $("#char-1").addClass("eco-trigger-13");
+                    });
+
+                    $("#trigger-3").mouseout(function(){
+                        $("#char-1").removeClass("eco-trigger-13");
+                    });
+
+                    $("#trigger-3").mouseover(function(){
+                        $("#char-2").addClass("eco-trigger-14");
+                    });
+
+                    $("#trigger-3").mouseout(function(){
+                        $("#char-2").removeClass("eco-trigger-14");
+                    });
+
+                    $("#trigger-3").mouseover(function(){
+                        $("#char-3").addClass("eco-trigger-15");
+                    });
+
+                    $("#trigger-3").mouseout(function(){
+                        $("#char-3").removeClass("eco-trigger-15");
+                    });
+
+                    $("#trigger-3").mouseover(function(){
+                    $("#char-5").addClass("eco-trigger-16");
+                    });
+
+                    $("#trigger-3").mouseout(function(){
+                        $("#char-5").removeClass("eco-trigger-16");});
+
+                    $("#trigger-3").mouseover(function(){
+                        $("#char-4").addClass("eco-trigger-17");
+                    });
+
+                    $("#trigger-3").mouseout(function(){
+                        $("#char-4").removeClass("eco-trigger-17");
+                    });
+
+                    $("#trigger-3").mouseover(function(){
+                        $("#char-10").addClass("eco-trigger-18");
+                    });
+
+                    $("#trigger-3").mouseout(function(){
+                        $("#char-10").removeClass("eco-trigger-18");
+                    });
+
+                    $("#trigger-3").mouseover(function(){
+                        $("#char-8").addClass("eco-trigger-19");
+                    });
+
+                    $("#trigger-3").mouseout(function(){
+                        $("#char-8").removeClass("eco-trigger-19");
+                    });
+
+
+
+
+
+                    //TRIGGER #4
+
+                    $("#trigger-4").mouseover(function(){
+                        $("#char-1").addClass("eco-trigger-20");
+                    });
+
+                    $("#trigger-4").mouseout(function(){
+                        $("#char-1").removeClass("eco-trigger-20");
+                    });
+
+                    $("#trigger-4").mouseover(function(){
+                        $("#char-2").addClass("eco-trigger-21");
+                    });
+
+                    $("#trigger-4").mouseout(function(){
+                        $("#char-2").removeClass("eco-trigger-21");
+                    });
+
+                    $("#trigger-4").mouseover(function(){
+                        $("#char-3").addClass("eco-trigger-22");
+                    });
+
+                    $("#trigger-4").mouseout(function(){
+                        $("#char-3").removeClass("eco-trigger-22");
+                    });
+
+                    $("#trigger-4").mouseover(function(){
+                        $("#char-5").addClass("eco-trigger-23");
+                    });
+
+                    $("#trigger-4").mouseout(function(){
+                        $("#char-5").removeClass("eco-trigger-23");
+                    });
+
+                    $("#trigger-4").mouseover(function(){
+                        $("#char-4").addClass("eco-trigger-24");
+                    });
+
+                    $("#trigger-4").mouseout(function(){
+                        $("#char-4").removeClass("eco-trigger-24");
+                    });
+
+                    $("#trigger-4").mouseover(function(){
+                        $("#char-6").addClass("eco-trigger-25");
+                    });
+
+                    $("#trigger-4").mouseout(function(){
+                        $("#char-6").removeClass("eco-trigger-25");
+                    });
+
+                    $("#trigger-4").mouseover(function(){
+                        $("#char-7").addClass("eco-trigger-26");
+                    });
+
+                    $("#trigger-4").mouseout(function(){
+                        $("#char-7").removeClass("eco-trigger-26");
+                    });
+
+
+
+
+
+                    //TRIGGER #5
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-1").toggleClass("all-trigger");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-2").toggleClass("all-trigger");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-4").toggleClass("all-trigger");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-5").toggleClass("all-trigger");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-6").toggleClass("all-trigger");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-7").toggleClass("all-trigger");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-10").toggleClass("all-trigger");
+                    });
+
+
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-1").removeClass("all-trigger");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-2").removeClass("all-trigger");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-4").removeClass("all-trigger");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-5").removeClass("all-trigger");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-6").removeClass("all-trigger");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-7").removeClass("all-trigger");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-10").removeClass("all-trigger");
+                    });
+
+
+
+
+
+                    //INFO OPACITY
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $(".hidden-info").toggleClass("all-trigger-opc");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $(".hidden-info").removeClass("all-trigger-opc");
+                    });
+
+
+
+
+
+                    //ANIMATION LOOPS
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-1").toggleClass("loop-anim1");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-2").toggleClass("loop-anim2");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-3").toggleClass("loop-anim3");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-4").toggleClass("loop-anim4");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-5").toggleClass("loop-anim5");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-6").toggleClass("loop-anim6");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-7").toggleClass("loop-anim7");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-8").toggleClass("loop-anim8");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-9").toggleClass("loop-anim9");
+                    });
+
+                    $("#nav-anim, #nav-anim-trigger").click(function(){
+                        $("#char-10").toggleClass("loop-anim10");
+                    });
+
+
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-1").removeClass("loop-anim1");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-2").removeClass("loop-anim2");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-3").removeClass("loop-anim3");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-4").removeClass("loop-anim4");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-5").removeClass("loop-anim5");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-6").removeClass("loop-anim6");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-7").removeClass("loop-anim7");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-8").removeClass("loop-anim8");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-9").removeClass("loop-anim9");
+                    });
+
+                    $("#nav-info, #nav-info-trigger").click(function(){
+                        $("#char-10").removeClass("loop-anim10");
+                    });
+
+
+
+
+
+                    //ANIMATION LOOPS
+
+                    $('#nav-info, #nav-info-trigger').click(function() {
+                        if ($('#char-1').hasClass("all-trigger")) {
+
+                               $("#nav-info").css("fill", "#454545");
+                        } else {
+                            $("#nav-info").css("fill", "#A5A5A5");
+                        }
+                    });
+
+                    $('#nav-info, #nav-info-trigger').click(function() {
+                        $("#nav-anim").css("fill", "#A5A5A5");
+                    });
+
+                    $('#nav-anim, #nav-anim-trigger').click(function() {
+                        if ($('#char-1').hasClass("loop-anim1")) {
+
+                               $("#nav-anim").css("fill", "#454545");
+                        } else {
+                            $("#nav-anim").css("fill", "#A5A5A5");
+                        }
+                    });
+
+                    $('#nav-anim, #nav-anim-trigger').click(function() {
+                        $("#nav-info").css("fill", "#A5A5A5");
+                    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+        
+    </body>
+</html>
